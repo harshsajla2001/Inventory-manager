@@ -45,11 +45,4 @@ const DashboardWrapper = ({ children }) => {
     </StoreProvider>
   );
 };
-
-console.log("DashboardWrapper: 2", DashboardWrapper);
-
-console.log("Navbar:", Navbar);
-console.log("Sidebar:", Sidebar);
-console.log("StoreProvider:", StoreProvider);
-
 export default DashboardWrapper;
