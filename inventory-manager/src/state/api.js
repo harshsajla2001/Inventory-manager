@@ -4,7 +4,19 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
     }),
-    endpoints: (builder) => ({}),
-    tagTypes: [],
+    tagTypes: ["DashboardMetrics", "Products", "Users", "Expenses"],
+
+    endpoints: (build) => ({
+        getDashboard: build.query({
+            query: () => '/dashboard',
+            providesTags: ['DashboardMetrics']
+        }),
+    }),
 });
-export const { } = api;
+export const {
+    //   useGetDashboardMetricsQuery,
+    useGetProductsQuery,
+    //   useCreateProductMutation,
+    //   useGetUsersQuery,
+    //   useGetExpensesByCategoryQuery,
+} = api;

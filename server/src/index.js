@@ -5,6 +5,11 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import expenseRoutes from "./routes/expenseRoutes.js";
+
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -21,6 +26,11 @@ app.get("/", (req, res) => {
   console.log("Received a GET request on /");
   res.send("Hello World!");
 });
+
+app.use("/dashboard", dashboardRoutes); // http://localhost:8000/dashboard
+app.use("/products", productRoutes); // http://localhost:8000/products
+app.use("/users", userRoutes); // http://localhost:8000/users
+app.use("/expenses", expenseRoutes); // http://localhost:8000/expenses
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
