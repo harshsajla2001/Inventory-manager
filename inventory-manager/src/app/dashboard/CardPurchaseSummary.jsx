@@ -1,4 +1,4 @@
-import { useGetDashboardMetricsQuery } from "@/state/api";
+import { useGetDashboardMetricsQuery } from "../../state/api";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import numeral from "numeral";
 import React from "react";
@@ -44,18 +44,17 @@ const CardPurchaseSummary = () => {
                 </p>
                 {lastDataPoint && (
                   <p
-                    className={`text-sm ${
-                      lastDataPoint.changePercentage! >= 0
-                        ? "text-green-500"
-                        : "text-red-500"
-                    } flex ml-3`}
+                    className={`text-sm ${lastDataPoint?.changePercentage >= 0
+                      ? "text-green-500"
+                      : "text-red-500"
+                      } flex ml-3`}
                   >
-                    {lastDataPoint.changePercentage! >= 0 ? (
+                    {lastDataPoint?.changePercentage >= 0 ? (
                       <TrendingUp className="w-5 h-5 mr-1" />
                     ) : (
                       <TrendingDown className="w-5 h-5 mr-1" />
                     )}
-                    {Math.abs(lastDataPoint.changePercentage!)}%
+                    {Math.abs(lastDataPoint?.changePercentage)}%
                   </p>
                 )}
               </div>
@@ -69,7 +68,7 @@ const CardPurchaseSummary = () => {
                 <XAxis dataKey="date" tick={false} axisLine={false} />
                 <YAxis tickLine={false} tick={false} axisLine={false} />
                 <Tooltip
-                  formatter={(value: number) => [
+                  formatter={(value) => [
                     `$${value.toLocaleString("en")}`,
                   ]}
                   labelFormatter={(label) => {

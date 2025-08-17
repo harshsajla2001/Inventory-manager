@@ -27,10 +27,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use("/dashboard", dashboardRoutes); // http://localhost:8000/dashboard
-app.use("/products", productRoutes); // http://localhost:8000/products
-app.use("/users", userRoutes); // http://localhost:8000/users
-app.use("/expenses", expenseRoutes); // http://localhost:8000/expenses
+app.use("/api/dashboard", dashboardRoutes); // http://localhost:8000/dashboard
+app.use("/api/products", productRoutes); // http://localhost:8000/products
+app.use("/api/users", userRoutes); // http://localhost:8000/users
+app.use("/api/expenses", expenseRoutes); // http://localhost:8000/expenses
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

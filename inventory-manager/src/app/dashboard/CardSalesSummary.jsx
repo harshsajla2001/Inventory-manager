@@ -22,7 +22,7 @@ const CardSalesSummary = () => {
 
   const averageChangePercentage =
     salesData.reduce((acc, curr, _, array) => {
-      return acc + curr.changePercentage! / array.length;
+      return acc + curr.changePercentage / array.length;
     }, 0) || 0;
 
   const highestValueData = salesData.reduce((acc, curr) => {
@@ -31,10 +31,10 @@ const CardSalesSummary = () => {
 
   const highestValueDate = highestValueData.date
     ? new Date(highestValueData.date).toLocaleDateString("en-US", {
-        month: "numeric",
-        day: "numeric",
-        year: "2-digit",
-      })
+      month: "numeric",
+      day: "numeric",
+      year: "2-digit",
+    })
     : "N/A";
 
   if (isError) {
@@ -108,7 +108,7 @@ const CardSalesSummary = () => {
                   axisLine={false}
                 />
                 <Tooltip
-                  formatter={(value: number) => [
+                  formatter={(value) => [
                     `$${value.toLocaleString("en")}`,
                   ]}
                   labelFormatter={(label) => {
